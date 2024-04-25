@@ -1,5 +1,5 @@
-subject.name = input('What is your name?: ', 's');
-subject.age = input('What is your age?:');
-subject.gender = input('What is your gender?: ', 's');
+name = input('What is your name?: ', 's');
+age = input('What is your age?:');
+gender = input('What is your gender?: ', 's');
 
 
