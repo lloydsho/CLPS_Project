@@ -20,6 +20,8 @@ Screen('Preference', 'VisualDebugLevel',0);
     DrawFormattedText(window, [line1 line2 line3], 'center', 'center');
     Screen('Flip',window);
     WaitSecs(5);
+    sca;
+    window = Screen('OpenWindow', 0);
 %%%% open window and explain response phase
     line1 = 'During the response phase ';
     line2 = '\n please input each word slowly. ';
@@ -236,6 +238,7 @@ end
 %%%%%%%%%%%%%%%%%%% WordCollection MECHANISM
 WaitSecs(1);
 KbName('UnifyKeyNames'); %%%matches KBname with native keyboard
+right_arrow = KbName('RightArrow');
 currentcharacters = 0;
 WordResponse = [];
 FinalWordResponse = [];
