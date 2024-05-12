@@ -1,0 +1,96 @@
+%%%%%IMPLEMENT SIMILAR MECHANISM AS WORD PRESENTATION FOR RANDOM STIMULI
+%%%%% THIS IS THE FIRST SEQUENCE THAT IS OUR NORMAL SERIAL TEST
+function StimuliPresentation
+Screen('Preference', 'Verbosity', 0); 
+Screen('Preference', 'SkipSyncTests',1); 
+Screen('Preference', 'VisualDebugLevel',0);
+try   
+%%%% open window
+    stimulicount =0;
+    window = Screen('OpenWindow', 0);
+    correctArray = [];
+    maxstimuli = 8;
+    randomizingindex = (1/maxstimuli);
+    %%%%%%%%%%%%%
+        %read the images
+        apple_img = imread('apple_img.png', 'png');
+    
+        brain_img = imread('brain_img.png', 'png');
+        
+        chair_img = imread('chair_img.png', 'png');
+        eagle_img = imread('eagle_img.png', 'png');
+        grass_img = imread('grass_img.png', 'png');
+        mango_img = imread('mango_img.png', 'png');
+        orange_img = imread('orange_img.png', 'png');
+        pizza_img = imread('pizza_img.png', 'png');
+        radio_img = imread('radio_img.png', 'png');
+        spoon_img = imread('spoon_img.png', 'png');
+        truck_img = imread('truck_img.png', 'png');
+        
+        %conversion of image to texture 
+        apple_img_texture = Screen('MakeTexture', window, apple_img);
+        brain_img_texture = Screen('MakeTexture', window, brain_img);
+        chair_img_texture = Screen('MakeTexture', window, chair_img);
+        eagle_img_texture = Screen('MakeTexture', window, eagle_img);
+        grass_img_texture = Screen('MakeTexture', window, grass_img);
+        mango_img_texture = Screen('MakeTexture', window, mango_img);
+        orange_img_texture = Screen('MakeTexture', window, orange_img);
+        pizza_img_texture = Screen('MakeTexture', window, pizza_img);
+        radio_img_texture = Screen('MakeTexture', window, radio_img);
+        spoon_img_texture = Screen('MakeTexture', window, spoon_img);
+        truck_img_texture = Screen('MakeTexture', window, truck_img);
+   while stimulicount <8     
+        texture_array = [
+        apple_img_texture 
+        brain_img_texture 
+        chair_img_texture 
+        eagle_img_texture 
+        grass_img_texture
+        mango_img_texture 
+        orange_img_texture 
+        pizza_img_texture 
+        radio_img_texture 
+        spoon_img_texture
+        truck_img_texture ];
+        for ii = 1:maxstimuli
+            numelements = numel(texture);         % determines the number of elements of vector 
+            randominteger = randi(numelements);        % returns a random integer between 1 and the number of elementx
+            randomword = linesarray(randominteger);        % randominteger is the randomly chosen element from linesarray 
+            randomwordarray = [randomwordarray, randomword]; %conceatenates randomword into the array
+        end
+
+        if rand() > randomizingindex %50 chance between two stimuli
+        Screen('DrawTexture', window, apple_img_texture);
+        stimulicount = stimulicount +1;
+        correctArray = [correctArray, 65];
+        %flip the screen to display the text
+        Screen('Flip',window)
+    
+        WaitSecs(5);
+        %blank screen inbetween stimuli
+        Screen('FillRect',window);
+        Screen('Flip', window);
+        WaitSecs(1)
+        else
+        Screen('DrawTexture', window, brain_img_texture);
+        stimulicount = stimulicount +1;
+        correctArray = [correctArray, 66];
+        Screen('Flip',window)
+    
+        WaitSecs(5);
+        %blank screen inbetween stimuli
+        Screen('FillRect',window);
+        Screen('Flip', window);
+        WaitSecs(1)
+        end
+        %close window
+    end
+    sca;
+    disp(correctArray)
+   
+catch
+    sca;
+    fclose('all');
+end
+
+return

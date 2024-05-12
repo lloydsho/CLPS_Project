@@ -1,0 +1,7 @@
+rock
+apple
+banana
+spear
+ball
+frog
+log
