@@ -8,7 +8,4 @@
  #Finally, when FinalStiuliPresentation and FinalWordPresentation are completed, the corresponding updates to the data represented in MasterGraphs can be observed.
 =======
  
-I. You will need the Psychtoolbox toolbox to use this code
-II. There is no preliminary data neccessary. 
-III. 
->>>>>>> Stashed changes
+
