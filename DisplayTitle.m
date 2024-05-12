@@ -4,7 +4,7 @@ try
     window = Screen('OpenWindow', 0);
     Screen('TextFont',window,'Courier');
     Screen('TextSize',window, 130);
-    [nx, ny, bbox] = DrawFormattedText(window, 'Lloyd Stroop Test', 'center', 'center', 0);
+    [nx, ny, bbox] = DrawFormattedText(window, 'Lloyd Serial Postion Test', 'center', 'center', 0);
     
     %flip the screen to display the text
     Screen('Flip',window)
